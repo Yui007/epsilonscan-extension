@@ -1,0 +1,211 @@
+/* Main Button */
+#epsilon-downloader-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#epsilon-downloader-btn:hover {
+    background-color: #e63e00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+#epsilon-downloader-btn:disabled {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Modal Overlay */
+#ed-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Modal Container */
+#ed-modal-content {
+    background: #1e1e1e;
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.ed-modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #252525;
+    border-radius: 8px 8px 0 0;
+}
+
+.ed-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.ed-modal-close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.ed-modal-close:hover {
+    color: #fff;
+}
+
+/* Toolbar */
+.ed-modal-toolbar {
+    padding: 10px 20px;
+    background: #2c2c2c;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.ed-btn-sm {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background: #333;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ed-btn-sm:hover {
+    background: #444;
+}
+
+.ed-btn-primary {
+    background: #ff4500;
+    border-color: #ff4500;
+    color: white;
+    margin-left: auto;
+}
+
+.ed-btn-primary:hover {
+    background: #e63e00;
+}
+
+/* Grid */
+.ed-image-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    align-content: start;
+}
+
+.ed-image-card {
+    position: relative;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    aspect-ratio: 2/3;
+}
+
+.ed-image-card.selected {
+    border-color: #ff4500;
+}
+
+.ed-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.ed-image-card.selected img {
+    opacity: 1;
+}
+
+.ed-checkbox-overlay {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ed-image-card.selected .ed-checkbox-overlay {
+    background: #ff4500;
+    border-color: #ff4500;
+}
+
+.ed-checkbox-overlay::after {
+    content: '✔';
+    color: white;
+    font-size: 12px;
+    display: none;
+}
+
+.ed-image-card.selected .ed-checkbox-overlay::after {
+    display: block;
+}
+
+.ed-res-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
